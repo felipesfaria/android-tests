@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>  
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="btn_artistas_onClick"
+            android:text="@string/btn_artistas" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="btn_tecnicas_onClick"
+            android:text="@string/btn_tecnicas" />
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="btn_obras_onClick"
+            android:text="@string/btn_obras" />
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="btn_favoritos_onClick"
+            android:text="@string/btn_favoritos" />
+
+    </LinearLayout>
+  
+    <ListView  
+        android:id="@+id/ListView1"  
+        android:layout_width="fill_parent"  
+        android:layout_height="wrap_content" >  
+    </ListView>  
+  
+</LinearLayout>  
