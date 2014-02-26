@@ -53,9 +53,7 @@ public class GaleriaMenu extends Activity {
 			arr_Artistas.add(c.getString(1));
 		}
 
-		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,R.layout.list,arr_Artistas);
-		//	  SimpleCursorAdapter adapter = new SimpleCursorAdapter(  
-		//	    getApplicationContext(), R.layout.list, c, from, to);  
+		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,arr_Artistas);
 
 		ListView list = (ListView) findViewById(R.id.ListView1);  
 		list.setAdapter(adapter);
