@@ -30,10 +30,8 @@ public class GaleriaMenu extends Activity {
 	}  
 
 
-	void listarArtistas(){  
-		String[] from = new String[] {"nome"};  
-		int[] to = new int[] { R.id.TextView1};
-		List<String> arr_Artistas;
+	void listarArtistas(){
+		List<String> arr_ListItems;
 
 		dbhelper = new DBHelper(this);  
 		try {  
@@ -45,24 +43,22 @@ public class GaleriaMenu extends Activity {
 
 		Cursor c = dbhelper.getArtistas();
 		c.moveToFirst();
-		arr_Artistas = new ArrayList<String>();
-		arr_Artistas.add("Todos");
-		int i=1;
+		arr_ListItems = new ArrayList<String>();
+		arr_ListItems.add(getString(R.string.todos));
+		
 		for(c.moveToFirst(); !c.isAfterLast(); c.moveToNext()) {
-			// The Cursor is now set to the right position
-			arr_Artistas.add(c.getString(1));
+			arr_ListItems.add(c.getString(1));
 		}
 
-		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,arr_Artistas);
+		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,arr_ListItems);
 
 		ListView list = (ListView) findViewById(R.id.ListView1);  
 		list.setAdapter(adapter);
 	}
 
-	void listarTipos(){  
-		String[] from = new String[] {"nome"};  
-		int[] to = new int[] { R.id.TextView1};  
-
+	void listarTipos(String tipo){
+		List<String> arr_ListItems;
+		
 		dbhelper = new DBHelper(this);  
 		try {  
 			dbhelper.createDataBase();  
@@ -71,13 +67,44 @@ public class GaleriaMenu extends Activity {
 			e.printStackTrace();  
 		}  
 
-		Cursor c = dbhelper.getTipos("todos");
+		Cursor c = dbhelper.getTipos(tipo);
+		c.moveToFirst();
+		arr_ListItems = new ArrayList<String>();
+		arr_ListItems.add(getString(R.string.todos));
+		
+		for(c.moveToFirst(); !c.isAfterLast(); c.moveToNext()) {
+			arr_ListItems.add(c.getString(1));
+		}
 
-		SimpleCursorAdapter adapter = new SimpleCursorAdapter(  
-				getApplicationContext(), R.layout.list, c, from, to);  
+		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,arr_ListItems);
 
 		ListView list = (ListView) findViewById(R.id.ListView1);  
+		list.setAdapter(adapter);
+	}
+	
+	void listarObras(String artista, String tipo){  
+		List<String> arr_ListItems;
+		
+		dbhelper = new DBHelper(this);  
+		try {  
+			dbhelper.createDataBase();  
+		} catch (IOException e) {  
+			// TODO Auto-generated catch block  
+			e.printStackTrace();  
+		}  
 
+		Cursor c = dbhelper.getObras(artista,tipo);
+		c.moveToFirst();
+		arr_ListItems = new ArrayList<String>();
+		arr_ListItems.add(getString(R.string.todos));
+		
+		for(c.moveToFirst(); !c.isAfterLast(); c.moveToNext()) {
+			arr_ListItems.add(c.getString(1));
+		}
+
+		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,arr_ListItems);
+
+		ListView list = (ListView) findViewById(R.id.ListView1);  
 		list.setAdapter(adapter);
 	}
 
@@ -95,7 +122,7 @@ public class GaleriaMenu extends Activity {
 
 		if(estado!=TIPOS){
 			estado=TIPOS;
-			listarTipos();
+			listarTipos("Tipo");
 		}
 	}
 
@@ -104,7 +131,7 @@ public class GaleriaMenu extends Activity {
 
 		if(estado!=OBRAS){
 			estado=OBRAS;
-			//listarObras();
+			listarObras("Henrique Campos Cavalleiro","Pintura");
 		}
 	}
 
