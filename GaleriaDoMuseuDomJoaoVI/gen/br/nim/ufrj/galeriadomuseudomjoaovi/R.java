@@ -46,7 +46,7 @@ public final class R {
     }
     public static final class id {
         public static final int FrameLayout1=0x7f0a0000;
-        public static final int ListView=0x7f0a000c;
+        public static final int LinearLayout1=0x7f0a000b;
         public static final int TextView1=0x7f0a000e;
         public static final int TextView2=0x7f0a000f;
         public static final int action_settings=0x7f0a0010;
@@ -54,7 +54,7 @@ public final class R {
         public static final int button1=0x7f0a0008;
         public static final int button2=0x7f0a0009;
         public static final int button3=0x7f0a000a;
-        public static final int button4=0x7f0a000b;
+        public static final int button4=0x7f0a000c;
         public static final int contatos_imagem=0x7f0a0003;
         public static final int proximo_contato=0x7f0a0002;
         public static final int textView1=0x7f0a0004;

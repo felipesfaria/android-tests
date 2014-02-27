@@ -25,7 +25,6 @@ public class MenuPrincipal extends Activity {
             // Show the Up button in the action bar.
             getActionBar().setDisplayHomeAsUpEnabled(true);
         }
-		Log.d("nim","Menu principal sai");
 	}
 
 	@Override
@@ -35,7 +34,7 @@ public class MenuPrincipal extends Activity {
 		return true;
 	}
 
-	public void gotoGaleria(View view){
+	public void gotoGaleriaMenu(View view){
 		Intent intent = new Intent(this, GaleriaMenu.class);
 		startActivity(intent);
 	}
