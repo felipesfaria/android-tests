@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="artistas">
+        <item name="usa">United States</item>
+        <item name="brasil">Brasil</item>
+        <item name="russia">Russia</item>
+        <item name="egypt">Egypt</item>
+        <item name="japan">Japan</item>
+    </string-array>
+    
+</resources>

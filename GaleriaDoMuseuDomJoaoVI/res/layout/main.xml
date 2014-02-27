@@ -1,0 +1,19 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/launch_background"
+    tools:context=".Main" >
+
+    <ImageView
+        android:id="@+id/contatos_imagem"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:clickable="true"
+        android:contentDescription="@string/launch_description"
+        android:onClick="gotoMenuPrincipal"
+        android:src="@drawable/launch" />
+
+</RelativeLayout>
