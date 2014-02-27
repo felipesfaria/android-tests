@@ -9,5 +9,6 @@
     <string name="btn_obras">Obra</string>
     <string name="btn_favoritos">Favoritos</string>
     <string name="todos">Todos</string>
+    <string name="nenhum">Nenhum</string>
 
 </resources>

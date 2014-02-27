@@ -16,12 +16,13 @@ public class DBHelper extends SQLiteOpenHelper {
 	private static String DB_NAME = "database";  
 	private SQLiteDatabase db;  
 	private final Context context;  
-	private String DB_PATH;  
+	private String DB_PATH, TODOS;  
 
-	public DBHelper(Context context) {  
+	public DBHelper(Context context, String todos) {  
 		super(context, DB_NAME, null, 1);  
 		this.context = context;  
-		DB_PATH = "/data/data/" + context.getPackageName() + "/" + "databases/";  
+		DB_PATH = "/data/data/" + context.getPackageName() + "/" + "databases/";
+		TODOS=todos;
 	}  
 
 	public void createDataBase() throws IOException {  
@@ -77,11 +78,11 @@ public class DBHelper extends SQLiteOpenHelper {
 		db = SQLiteDatabase.openDatabase(myPath, null,  
 				SQLiteDatabase.OPEN_READONLY);
 		query="SELECT DISTINCT tn ._id, tn.nome FROM tipos_nomes as tn, artistas as a, galeria as g WHERE tn._id=g.id_tipo";
-		if(artista!="todos"){
+		if(!artista.equals(TODOS)){
 			query+=" AND g.id_artista=a._id AND a.nome='"+artista+"'";
 		}
 		query+=" ORDER BY tn.nome ASC";
-		Log.d("nim", query);
+		Log.d("SQL", query);
 		Cursor c = db.rawQuery(query, null);  
 		// Note: Master is the one table in External db. Here we trying to access the records of table from external db.  
 		return c;  
@@ -94,7 +95,7 @@ public class DBHelper extends SQLiteOpenHelper {
 				SQLiteDatabase.OPEN_READONLY);
 		
 		query="SELECT g._id, g.obra FROM galeria as g";
-		if(artista!="todos"&&tipo!="todos"){
+		if(!artista.equals(TODOS)&&!tipo.equals(TODOS)){
 			
 			query+=", tipos_nomes as tn, artistas as a";
 			query+=" WHERE g.id_artista=a._id";
@@ -102,20 +103,20 @@ public class DBHelper extends SQLiteOpenHelper {
 			query+=" AND g.id_tipo=tn._id";
 			query+=" AND tn.nome='"+tipo+"'";
 			
-		}else if(artista!="todos"){
+		}else if(!artista.equals(TODOS)){
 			
 			query+=", artistas as a";
 			query+=" WHERE g.id_artista=a._id";
 			query+=" AND a.nome='"+artista+"'";
 			
-		}else if(tipo!="todos"){
+		}else if(!tipo.equals(TODOS)){
 			query+=", tipos_nomes as tn";
 			query+=" WHERE g.id_tipo=tn._id";
 			query+=" AND tn.nome='"+tipo+"'";
 			
 		}
 		query+=" ORDER BY g.obra ASC";
-		Log.d("nim", query);
+		Log.d("SQL", query);
 		Cursor c = db.rawQuery(query, null);  
 		// Note: Master is the one table in External db. Here we trying to access the records of table from external db.  
 		return c;  
