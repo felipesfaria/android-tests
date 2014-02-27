@@ -16,7 +16,7 @@ public class MenuPrincipal extends Activity {
 	@SuppressLint("NewApi")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		Log.d("nim","App Start!");
+		Log.d("nim","Menu principal entra");
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_menu_principal);
 		
@@ -25,6 +25,7 @@ public class MenuPrincipal extends Activity {
             // Show the Up button in the action bar.
             getActionBar().setDisplayHomeAsUpEnabled(true);
         }
+		Log.d("nim","Menu principal sai");
 	}
 
 	@Override

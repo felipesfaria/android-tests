@@ -6,14 +6,14 @@
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_menu_principal">Menu Principal</string>
     <string name="launch_description">Logo do Museu Dom João VI, Clique para entrar.</string>
-    <string name="title_activity_galeria_menu">GaleriaMenu</string>
-    <string name="title_activity_tour_virtual">TourVirtual</string>
-    <string name="title_activity_passeio_panoramico">PasseioPanoramico</string>
+    <string name="title_activity_galeria_menu">Galeria Menu</string>
+    <string name="title_activity_tour_virtual">Tour Virtual</string>
+    <string name="title_activity_passeio_panoramico">Passeio Panoramico</string>
     <string name="title_activity_contatos">Contatos</string>
     <string name="title_activity_equipe">Equipe</string>
     <string name="title_activity_copyright">Copyright</string>
     <string name="title_activity_agradecimentos">Agradecimentos</string>
-    <string name="title_activity_como_chegar">ComoChegar</string>
+    <string name="title_activity_como_chegar">Como Chegar</string>
     <string name="db_name">db_mdjvi_pt.sql</string>
 
 </resources>

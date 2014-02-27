@@ -3,6 +3,7 @@ package br.nim.ufrj.galeriadomuseudomjoaovi;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.view.Window;
@@ -12,6 +13,7 @@ public class Main extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {//Remove title bar
+		Log.d("nim","App Start!");
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 
 		//Remove notification bar
